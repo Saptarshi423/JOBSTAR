@@ -5,6 +5,7 @@ import { getUserFromLocalStorage, addUserToLocalStorage, removeUserFromLocalStor
 
 const initialState = {
   isLoading: false,
+  isSideBarOpen:true,
   user: getUserFromLocalStorage(),
 };
 
@@ -34,6 +35,16 @@ export const loginUser = createAsyncThunk(
 const userSlice = createSlice({
   name: "user",
   initialState,
+  reducers:{
+    toggleSideBar : (state, action)=>{
+      state.isSideBarOpen = !state.isSideBarOpen;
+    },
+    logOutUser : (state,action)=>{
+      state.user = null;
+      state.isSideBarOpen = false;
+      removeUserFromLocalStorage();
+    }
+  },
   extraReducers: {
     [registerUser.pending]: (state) => {
       state.isLoading = true;
@@ -72,4 +83,5 @@ const userSlice = createSlice({
   //   },
 });
 
+export const {toggleSideBar, logOutUser} = userSlice.actions;
 export default userSlice.reducer;
