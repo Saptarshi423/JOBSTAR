@@ -14,10 +14,7 @@ function SmallSidebar() {
     console.log('toggle')
     dispatch(toggleSideBar())
   }
-
-  // useEffect(()=>{
-  //   console.log(isSideBarOpen)
-  // },[isSideBarOpen])
+  
   return (
     <Wrapper>
       <div className={`sidebar-container ${isSideBarOpen ? 'show-sidebar' : ''}`}>

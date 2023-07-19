@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import {toggleSideBar, logOutUser} from '../features/user/userSlice';
-import { toggleSideBar, logOutUser } from "../features/user/userSlice";
+import { toggleSideBar, logoutUser } from "../features/user/userSlice";
 
 function Navbar() {
   const [showLogout, setShowLogout] = useState(false);
@@ -58,7 +58,7 @@ function Navbar() {
               type="button"
               onClick={() => {
                 console.log('log user out');
-                dispatch(logOutUser())
+                dispatch(logoutUser('Logging Out...'))
               }}
             >
               logout
